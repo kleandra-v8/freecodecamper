@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import QuoteBox from './QuoteBox';
 import './App.css';
+import HomeButton from '../HomeButton';
 
 export default function App() {
     const [quote, setQuote] = useState({
@@ -39,6 +40,7 @@ export default function App() {
 
     return (
         <div id='app'>
+            <HomeButton />
             <QuoteBox
                 text={quote.text}
                 author={quote.author}

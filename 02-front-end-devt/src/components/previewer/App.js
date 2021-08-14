@@ -5,6 +5,7 @@ import './app.scss';
 import Editor from './Editor';
 import Preview from './Preview';
 import placeholder from './placeholder';
+import HomeButton from '../HomeButton';
 
 // allow <br> and self-close html tags
 marked.setOptions({ breaks: true, xhtml: true });
@@ -29,6 +30,7 @@ function App() {
 
     return (
         <div className='app'>
+            <HomeButton />
             <h1 className='title'>React Markdown Previewer</h1>
             <div className='container'>
                 <Editor onEdit={onEdit} content={editorText} />

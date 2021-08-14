@@ -1,4 +1,4 @@
-.calculatorApp {
+.calculator-app {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,4 +7,8 @@
     padding: 2rem;
     color: aqua;
     background-color: #000a;
+
+    .the-calculator {
+        color: aquamarine;
+    }
 }
