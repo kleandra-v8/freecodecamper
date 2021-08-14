@@ -1,0 +1,33 @@
+footer {
+  width: 100vw;
+  padding: 20px 25px 15px;
+  background-color: #000;
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+  transition: 200ms ease-in-out;
+
+  div {
+    display: inline-block;
+    padding: 0 5px;
+  }
+  a {
+    margin: 0 5px;
+    color: #0dcaf0bb;
+    text-decoration: none;
+    transition: 200ms ease-in-out;
+  }
+  a:hover {
+    color: #ddd;
+    border-bottom: 1px solid #0dcaf0cc;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  footer {
+    z-index: 2;
+    background-color: #000;
+    border-top: 1px solid #333;
+    margin-top: 120px;
+  }
+}

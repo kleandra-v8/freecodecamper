@@ -1,0 +1,32 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    padding: 20px 25px 15px;
+    background-color: #0009;
+    color: #999;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: 200ms ease-in-out;
+  }
+  footer div {
+    display: inline-block;
+    padding: 0 5px;
+  }
+  footer a {
+    margin: 0 5px;
+    color: #0dcaf0bb;
+    text-decoration: none;
+    transition: 200ms ease-in-out;
+  }
+  footer a:hover {
+    color: #ddd;
+    border-bottom: 1px solid #0dcaf0cc;
+  }
+  
+  @media screen and (max-width: 400px) {
+    footer {
+      display: none;
+    }
+  }
+  

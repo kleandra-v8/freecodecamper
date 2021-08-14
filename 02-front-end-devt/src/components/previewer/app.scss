@@ -1,0 +1,165 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;500&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Original+Surfer&family=Ubuntu+Mono:ital@0;1&display=swap');
+
+$translucent: #131417aa;
+
+* {
+  box-sizing: border-box;
+  /* Works on Firefox: */
+  scrollbar-width: thin;
+  scrollbar-color: $black $translucent;
+}
+/* Works on Chrome, Edge, and Safari: */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: $translucent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $black;
+  border-radius: 20px;
+  border: 3px solid $translucent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $white;
+  background-color: $black;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  .title {
+    margin: 15px 40px;
+    font-size: 1.5rem;
+    font-family: 'Original Surfer', cursive;
+    text-align: center;
+  } 
+  
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  transition: 200ms ease-in-out;
+
+  .title-bar {
+    margin: 0;
+    padding: 12px 12px 7px;
+    font-size: 1.1rem;
+    background-color: $gray-dark-7;
+    border-top: 3px solid $gray-dark-4;
+    border-bottom: 0.5px solid $gray-dark-4;  
+    .symbols {
+      color: $blue;
+    }
+  }    
+}
+@media screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+  }
+  #editor, #preview {
+    min-width: 350px;
+    min-height: 80vh;
+  }
+  #editor {
+    flex: 1;
+    resize: horizontal;
+  }
+  #preview {
+    flex: 2;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #editor, #preview {
+    min-width: 600px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  #editor, #preview {
+    min-width: 800px;
+  }
+}
+
+%content {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  overflow: scroll;
+  line-height: 1.4;
+  color: $gray-light-5;
+  background-color: $gray-dark-6;
+  border: 0;
+}
+%code {
+  color: $gray-light-2;
+  background-color: $black;
+}
+
+#editor {
+  @extend %content;
+  resize: vertical;
+}
+#preview {
+  @extend %content;
+  font-size: 1.1rem;
+
+  code {
+    @extend %code;
+    font-family: 'Ubuntu Mono', monospace;
+    padding: 0.2rem;
+    line-height: 1.2;
+    border-radius: 8px;
+  }
+  pre {
+    @extend %code;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border-radius: 15px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  a {
+    color: $blue-light;
+  }
+  a:hover {
+    color: $blue;
+  }
+  table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid $gray-dark-3;
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid $gray-dark-2;
+      border-right: 1px solid $gray-dark-2;
+    }
+  }
+  blockquote {
+    color: $gray-light-1;
+    border-left: 3px solid $gray-dark-2;
+    padding: 0 10px;
+    font-family: 'Bitter', serif;
+  }
+}

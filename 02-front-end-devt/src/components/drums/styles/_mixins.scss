@@ -1,0 +1,31 @@
+
+// background: #FF416C;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+// @mixin bg-2gradient($color1, $color2) {
+//     /* fallback for old browsers */
+//     background-color: $color1;
+//     /* Chrome 10-25, Safari 5.1-6 */
+//     background: -webkit-radial-gradient(center, $color1, $color2);  
+//     // Mozilla 
+//     background: -moz-radial-gradient(center, $color1, $color2);  
+//     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//     background: radial-gradient(center, $color1, $color2);
+// }
+
+// background: #FFFFFF;
+// background: -webkit-radial-gradient(center, #FFFFFF, #C5D5C3);
+// background: -moz-radial-gradient(center, #FFFFFF, #C5D5C3);
+// background: radial-gradient(ellipse at center, #FFFFFF, #C5D5C3);
+
+@mixin bg-3gradient($color1, $color2, $color3) {
+    /* fallback for old browsers */
+    background-color: $color1;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-radial-gradient($color1, $color2, $color3);    
+    // Mozilla 
+    background: -moz-radial-gradient($color1, $color2, $color3);  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: radial-gradient($color1, $color2, $color3)
+}
