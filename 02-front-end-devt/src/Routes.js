@@ -3,6 +3,7 @@ import App from './App';
 import RandomQuotes from './components/quotes/App';
 import MarkdownPreviewer from './components/previewer/App';
 import DrumMachine from './components/drums/App';
+import Calculator from './components/calculator/App';
 
 const Routes = () => {
     return (
@@ -15,6 +16,7 @@ const Routes = () => {
                     exact
                 />
                 <Route path='/drum-machine' component={DrumMachine} exact />
+                <Route path='/calculator' component={Calculator} exact />
                 <Route path='/' component={App} />
             </Switch>
         </BrowserRouter>

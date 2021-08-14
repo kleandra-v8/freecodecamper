@@ -14,6 +14,9 @@ function App() {
                 <h2 className='App-link'>
                     <Link to='/drum-machine'>Drum Machine</Link>
                 </h2>
+                <h2 className='App-link'>
+                    <Link to='/calculator'>Calculator</Link>
+                </h2>
             </header>
         </div>
     );
