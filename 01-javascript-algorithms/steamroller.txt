@@ -1,0 +1,45 @@
+Intermediate Algorithm Scripting: Steamroller
+Flatten a nested array. You must account for varying levels of nesting.
+
+
+
+
+function steamrollArray(arr) {
+  const result = [];
+
+  const recur = (arrRecur) => {
+      // console.log(arrRecur);
+      for (let aR of arrRecur)
+      {
+          let isArr = Array.isArray(aR);
+          // console.log(isArr, aR);
+          if (!isArr)
+          {
+              result.push(aR);
+          }
+          else
+          {
+              //call again
+              recur(aR);
+          }
+      }
+  };
+  
+  recur(arr);
+  console.log(result);
+  return result;
+}
+
+
+
+steamrollArray([[["a"]], [["b"]]]) ; 
+//should return ["a", "b"].
+
+steamrollArray([1, [2], [3, [[4]]]]); 
+//should return [1, 2, 3, 4].
+
+steamrollArray([1, [], [3, [[4]]]]); 
+//should return [1, 3, 4].
+
+steamrollArray([1, {}, [3, [[4]]]]); 
+//should return [1, {}, 3, 4].

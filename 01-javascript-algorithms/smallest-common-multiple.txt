@@ -1,0 +1,46 @@
+Intermediate Algorithm Scripting: Smallest Common Multiple
+Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+
+
+
+function smallestCommons(arr) {
+  let nums = [];
+  let max = Math.max(...arr);  
+  let min = Math.min(...arr); 
+
+  for (let i=max; i>=min; i--) {
+      nums.push(i);
+  }
+
+  console.log(nums);
+
+  let lcm = nums[0];
+
+  for(let i=1; i<nums.length; i++) {
+    let GCD = gcd(lcm, nums[i]);
+    lcm = (lcm * nums[i]) / GCD;
+    //console.log(lcm);
+  }
+
+  console.log(lcm);
+
+  return lcm;
+}
+
+// Implements the Euclidean Algorithm
+function gcd(x,y) {
+  if(y===0) return x;
+  else return gcd(y, x%y);
+}
+
+smallestCommons([1,5]);
+smallestCommons([2, 10]);
+
+/**  LCM (a,b) = (a x b)/GCD(a,b)
+ * 
+ */

@@ -1,0 +1,166 @@
+/* 
+    nav breakpoint: 816px 
+*/
+
+:root {
+    --bg: #fafafa;
+    --text: #222;
+    --code: #dce9f3;
+    /* --code: #e5e5e5; */
+    --nav: aliceblue;
+    --bghov: #bbe1fa;
+    --borderhov: #a6dcef;
+    --link: dodgerblue;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', Calibri, Arial, sans-serif;
+    line-height: 1.3;
+    color: var(--text);
+    background-color: var(--bg);
+}
+h1, header, h3 {
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+h1 {
+    font-size: 2.5rem;
+}
+header {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 
+}
+strong {
+    font-weight: 500;
+}
+
+#navbar {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--nav);
+    border-bottom: 4px solid var(--bghov);
+}
+#navbar header {
+    padding: 1rem;
+    background-color: var(--bghov);
+}
+
+.scrolly {
+    width: 100%; 
+    height: 100%;
+    overflow: auto;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--text);
+    border: 2px solid var(--bg);
+    transition: background-color 350ms ease-in-out;
+}
+.nav-link:hover {
+    background-color: var(--bghov);
+    border-color: var(--borderhov);
+}
+
+#main-doc {
+    width: 100%;
+}
+.main-section {
+    position: relative;
+    margin: 3rem 1rem 4rem;
+}
+.main-section header {
+    padding-right: 3rem;
+}
+.toplink {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.8rem;
+    margin-left: 1rem;
+}
+.toplink svg {
+    width: 2rem;
+    height: 2rem;
+}
+#main-doc code {
+    background-color: var(--code);
+}
+#main-doc .code {
+    width: auto;
+    margin-left: 1.5rem;
+    padding: 0.5rem 1rem 0.8rem;
+    white-space: nowrap;
+    overflow: auto;
+    background-color: var(--code);
+    border: 1px solid var(--code);
+    border-radius: 8px;
+}
+#main-doc a {
+    text-decoration: none;
+    color: var(--link);
+}
+#main-doc a:hover {
+    text-decoration: underline;
+    color: var(--borderhov);
+}
+#main-doc li {
+    margin-bottom: 0.5rem;
+}
+#main-doc h3 {
+    margin-top: 1.5rem;
+}
+#main-doc article {
+    border-top: 2px solid var(--bghov);
+}
+
+@media (min-width: 816px)
+{
+    body {
+        display: flex;
+        justify-content: center;
+    }
+    #navbar {
+        position: fixed;
+        top: 0;   
+        left: 0;     
+        width: 16rem;
+        height: 100%;
+        text-align: left;
+        border-right: 4px solid var(--bghov);
+    }
+    #navbar header {
+        padding: 2rem;
+    }
+    .nav-link {
+        padding-left: 3rem;
+    }
+    #main-doc {
+        margin-left: 17rem;
+        min-width: 18rem;
+        max-width: 62rem;
+    }
+    .main-section:first-of-type {
+        margin-top: 2rem;
+    }
+    .main-section a svg {
+        display: none;
+    }
+}
+
+footer
+{
+    padding: 1rem 3rem 2rem;
+    margin-top: 5rem;
+    border-top: 2px solid var(--bghov);
+}

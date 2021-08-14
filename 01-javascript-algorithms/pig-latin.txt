@@ -1,0 +1,41 @@
+Intermediate Algorithm Scripting: Pig Latin
+
+Pig Latin is a way of altering English Words. The rules are as follows:
+
+- If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add "ay" to it.
+
+- If a word begins with a vowel, just add "way" at the end.
+
+Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SOLUTION:  
+
+
+function translatePigLatin(str) {
+  let rxconso = /^[^aeiou]+/i;
+  let rxvowel = /^[aeiou]+/i;
+  let str2 = '';
+  if(rxconso.test(str)) {
+    let cons = str.match(rxconso)[0];
+    console.log(str+' ~ consonant: '+cons);
+    str2 = str.slice(cons.length, str.length) +cons+'ay';
+  } 
+  else if(rxvowel.test(str)) {
+    let vows = str.match(rxvowel)[0];
+    console.log(str+' ~ consonant: '+vows);
+    str2 = str + 'way';
+  }
+  console.log('~~ '+str2);
+  return str2;
+}
+
+translatePigLatin("consonant");
+translatePigLatin("california");
+translatePigLatin("paragraphs");
+translatePigLatin("glove");
+translatePigLatin("algorithm");
+translatePigLatin("eight");
+translatePigLatin("schwartz");
+translatePigLatin("rhythm");

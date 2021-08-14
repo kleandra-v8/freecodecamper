@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 3 - A freeCodeCamp Technical Documentation Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <header>
+            <h1>Python 3</h1>
+        </header>
+        <div class="scrolly">
+            <a href="#Introduction" class="nav-link">Introduction</a>
+            <a href="#Installation" class="nav-link">Installation</a>
+            <a href="#Hello_Python" class="nav-link">Hello Python</a>
+            <a href="#Variables_and_Types" class="nav-link">Variables and Types</a>
+            <a href="#Lists" class="nav-link">Lists</a>
+            <a href="#Basic_Operators" class="nav-link">Basic Operators</a>
+            <a href="#String_Formatting" class="nav-link">String Formatting</a>
+            <a href="#Conditions" class="nav-link">Conditions</a>
+            <a href="#Loops" class="nav-link">Loops</a>
+            <a href="#Functions" class="nav-link">Functions</a>
+            <a href="#String_Operations" class="nav-link">String Operations</a>
+            <a href="#Classes_and_Objects" class="nav-link">Classes and Objects</a>
+            <a href="#Dictionaries" class="nav-link">Dictionaries</a>
+            <a href="#Modules_and_Packages" class="nav-link">Modules and Packages</a>
+            <a href="#Reference" class="nav-link">Reference</a>
+        </div>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+                <p>This reference manual is for getting to know Python, just to learn the basics.</p>
+                <!-- <p>
+                    Python is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate (prepared) code.
+                    <a href="https://www.learnpython.org/en/Hello%2C_World%21" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p> -->
+                <p>
+                    Python is a high-level, interpreted, interactive and object-oriented scripting language. Python is
+                    designed to be highly readable. It uses English keywords frequently where as other languages use
+                    punctuation, and it has fewer syntactical constructions than other languages. Here are some of the
+                    key advantages of learning Python:
+                    <a href="https://www.tutorialspoint.com/python/index.htm"
+                        target="_blank"><sup>[tutorialspoint.com]</sup></a>
+
+                </p>
+                <ul>
+                    <li>
+                        <strong>Python is Interpreted</strong>
+                        − Python is processed at runtime by the interpreter. You do not need to compile your program
+                        before executing it. This is similar to PERL and PHP.
+                    </li>
+                    <li>
+                        <strong>Python is Interactive</strong>
+                        − You can actually sit at a Python prompt and interact with the interpreter directly to write
+                        your programs.
+                    </li>
+                    <li>
+                        <strong>Python is Object-Oriented</strong>
+                        − Python supports Object-Oriented style or technique of programming that encapsulates code
+                        within objects.
+                    </li>
+                    <li>
+                        <strong>Python is a Beginner's Language</strong>
+                        − Python is a great language for the beginner-level programmers and supports the development of
+                        a wide range of applications from simple text processing to WWW browsers to games.
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="main-section" id="Installation">
+            <header>Installation</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Type "python" on your terminal window to find out if it is already installed. If not yet installed,
+                    you can download it on <a href="https://www.python.org/downloads/"
+                        target="_blank">www.python.org</a>.
+                </p>
+                <p>
+                    Python is available on a wide variety of platforms including Windows, Linux, and Mac OS X. You need
+                    to download only the binary code applicable for your platform and install Python.
+                    If the binary code for your platform is not available, you need a C compiler to compile the source
+                    code manually. Compiling the source code offers more flexibility in terms of choice of features that
+                    you require in your installation.
+                    <a href="https://www.tutorialspoint.com/python/python_environment.htm"
+                        target="_blank"><sup>[tutorialspoint.com]</sup></a>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Hello_Python">
+            <header>Hello Python</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Python encourages programmers to program without boilerplate (prepared) code. The simplest directive
+                    in Python is the "print" directive - it simply prints out a line (and also includes a newline).
+                    <a href="https://www.learnpython.org/en/Hello%2C_World%21"
+                        target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p>
+                    In Python 3, "print" is a function, and must be invoked with parentheses. To print "Hello, Python!",
+                    just type:
+                </p>
+                <p class="code">
+                    <code>print("Hello, Python!")</code>
+                </p>
+                <p>
+                    You can use the following tools to run your Python scripts:
+                    <a href="https://realpython.com/run-python-scripts/#:~:text=To%20run%20Python%20scripts%20with,python3%20hello.py%20Hello%20World!"
+                        target="_blank"><sup>[realpython.com]</sup></a>
+                <ul>
+                    <li>
+                        <strong>Command-line or Terminal</strong>
+                        − Save your file with a <code>.py</code> extension, as in <code>hello.py</code>. Open a
+                        command-line and type in <code>python</code>, followed by the path to your script:
+                        <code>python hello.py</code>
+                    </li>
+                    <li>
+                        <strong>Python Interactive Mode </strong>
+                        − To start a Python interactive session, just open a command-line or terminal window and then
+                        type in <code>python</code> or <code>py</code> and then hit Enter.
+                        The standard prompt for the interactive mode is <code>>>></code>.
+                        Once you see this, you can write and run Python code, but when you close the session, your code
+                        will be gone.
+                        Type <code>exit()</code> or <code>quit()</code> to exit interactive mode.
+                    </li>
+                    <li>
+                        <strong>IDE or Text Editor </strong>
+                        − When developing larger and more complex applications, it is recommended that you use an
+                        integrated development environment (IDE) or an advanced text editor.
+                        Python’s standard distribution includes IDLE as the default IDE.
+                        Other IDEs such as Eclipse-PyDev, PyCharm, Eric, and NetBeans also allow you to run Python
+                        scripts from inside the environment.
+                        You can also use advanced text editors like Sublime Text and Visual Studio Code to run your
+                        scripts.
+                    </li>
+                    <li>
+                        <strong>File Manager </strong>
+                        − You can run a python script by double-clicking on its icon in a file manager. In order to do
+                        this, you must satisfy some conditions that will depend on your operating system, such as file
+                        associations and execution permissions.
+                    </li>
+                </ul>
+                </p>
+                <h3>Comments</h3>
+                <p>
+                    Comments can be used to explain Python code, to make the code more readable, and to prevent code execution when testing. Comments starts with a #, and Python will ignore them.
+                </p>
+                <p class="code">
+                    <code>
+                        # This is a comment <br>
+                        print("Hello, Python!") <br>
+                    </code>
+                </p>
+                <p>
+                    Python does not really have a syntax for multi line comments. But since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it. As long as the string is not assigned to a variable, Python will read the code, but then ignore it, and you have made a multiline comment.
+                    <a href="https://www.w3schools.com/python/python_comments.asp" target="_blank"><sup>[w3schools.com]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        """ <br>
+                        This is a comment <br>
+                        written in <br>
+                        more than just one line <br>
+                        """ 
+                    </code>
+                </p>
+                <h3>Indentation</h3>
+                <p>
+                    Python uses indentation for blocks, instead of curly braces. Both tabs and spaces are supported, but
+                    the standard indentation requires standard Python code to use four spaces. For example:
+                </p>
+                <p class="code">
+                    <code>
+                        if x == 1:  <br>
+                            &nbsp;&nbsp;&nbsp;
+                            # indented four spaces  <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print("x is 1.")  <br>
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Variables_and_Types">
+            <header>Variables and Types</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Python is completely object oriented, and not "statically typed". You do not need to declare
+                    variables before using them, or declare their type. Every variable in Python is an object.
+                    <a href="https://www.learnpython.org/en/Variables_and_Types"
+                        target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <h3>Numbers</h3>
+                <p>
+                    Python supports two types of numbers - integers(whole numbers) and floating point numbers(decimals).
+                    To define an integer or a floating point number, use the following syntax:
+                </p>
+                <p class="code">
+                    <code>
+                        myint = 3 <br>
+                        myfloat = 3.92 
+                    </code>
+                </p>
+                <h3>Strings</h3>
+                <p>
+                    Strings are defined either with a single quote or a double quotes:
+                    <code>mystring = 'hello'</code> or <code>mystring = "hello"</code>.
+                    The difference between the two is that using double quotes makes it easy to include apostrophes (whereas these would terminate the string if using single quotes). For example:
+                </p>
+                <p class="code">
+                    <code>
+                        mystring = "Don't you like Brahms?" <br>
+                        print(mystring)
+                    </code>
+                </p>
+                <p>
+                    <br>
+                    Simple operators can be executed on numbers and strings:
+                </p>
+                <p class="code">
+                    <code>
+                        one = 1 <br>
+                        two = 2 <br>
+                        three = one + two <br>
+                        <br>
+                        s = "secret" <br>
+                        g = "garden" <br>
+                        sg = s + " " + g 
+                    </code>
+                </p>
+                <p>
+                    Assignments can be done on more than one variable "simultaneously" on the same line like this:
+                </p>
+                <p class="code">
+                    <code>
+                        a, b = 3, 4 <br>
+                        print(a,b) 
+                    </code>
+                </p>
+                <p>
+                    Mixing operators between numbers and strings is not supported:
+                </p>
+                <p class="code">
+                    <code>
+                        # This will not work!  <br>
+                        one = 1 <br>
+                        two = 2 <br>
+                        hello = "hello" <br>
+                        print(one + two + hello) 
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Lists">
+            <header>Lists</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Lists are very similar to arrays. They can contain any type of variable, and they can contain as
+                    many variables as you wish. Lists can also be iterated over in a very simple manner.
+                    <a href="https://www.learnpython.org/en/Lists" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        mylist = [1, 2, 3] <br>
+                        mylist.append(4) <br>
+                        print(mylist[3]) # prints 4 <br>
+                        <br>
+                        # prints out 1, 2, 3, 4 <br>
+                        for x in mylist: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print(x) 
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Basic_Operators">
+            <header>Basic Operators</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    This section explains how to use basic operators in Python. Just as any other programming languages, the addition, subtraction, multiplication, and division operators can be used with numbers.
+                    <a href="https://www.learnpython.org/en/Basic_Operators" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        number = 1 + 2 * 3 / 4.0 
+                    </code>
+                </p>
+                <p>
+                    Another operator available is the modulo (%) operator, which returns the integer remainder of the division. dividend % divisor = remainder.
+                </p>
+                <p class="code">
+                    <code>
+                        remainder = 11 % 3 
+                    </code>
+                </p>
+                <p>
+                    Using two multiplication symbols makes a power relationship.
+                </p>
+                <p class="code">
+                    <code>
+                        squared = 7 ** 2 <br>
+                        cubed = 2 ** 3 
+                    </code>
+                </p>
+                <h3>Using Operators with Strings</h3>
+                <p>
+                    Python supports concatenating strings using the addition operator.
+                </p>
+                <p class="code">
+                    <code>
+                        name = "park" + " " + "seo" + " " + "joon" <br>
+                        print(name) 
+                    </code>
+                </p>
+                <p>
+                    Python also supports multiplying strings to form a string with a repeating sequence.
+                </p>
+                <p class="code">
+                    <code>
+                        lotsofhellos = "hello" * 10 <br>
+                        print(lotsofhellos) #prints hellohellohellohellohellohellohellohellohellohello <br>
+                    </code>
+                </p>
+                <h3>Using Operations with Lists</h3>
+                <p>
+                    Lists can be joined with the addition operator.
+                </p>
+                <p class="code">
+                    <code>
+                        evens = [2, 4, 6, 8] <br>
+                        odds = [1, 3, 5, 7] <br>
+                        all_nums = odds + evens
+                    </code>
+                </p>
+                <p>
+                    Just as in strings, Python supports forming new lists with a repeating sequence using the multiplication operator.
+                </p>
+                <p class="code">
+                    <code>
+                        repeater = [1, 2, 3] * 3 <br>
+                        print(repeater) # [1, 2, 3, 1, 2, 3, 1, 2, 3]
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="String_Formatting">
+            <header>String Formatting</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Python uses C-style string formatting to create new, formatted strings. The "%" operator is used to format a set of variables enclosed in a "tuple" (a fixed size list), together with a format string, which contains normal text together with "argument specifiers", special symbols like "%s" and "%d".
+                    <a href="https://www.learnpython.org/en/String_Formatting" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        # This prints out "Hello, Jon" <br>
+                        name = "Jon" <br>
+                        print("Hello, %s!" % name) <br>
+                        <br>
+                        # This prints out "Jon is 34 years old" <br>
+                        age = 34 <br>
+                        print("%s is %d years old." % (name, age)) 
+                    </code>
+                </p>
+                <p>
+                    Any object which is not a string can be formatted using the %s operator as well. The string which returns from the "repr" method of that object is formatted as the string. For example:
+                </p>
+                <p class="code">
+                    <code>
+                        # This prints out: A list: [1, 2, 3] <br>
+                        mylist = [1, 2, 3] <br>
+                        print("A list: %s" % mylist)
+                    </code>
+                </p>
+                <p>
+                    Here are some basic argument specifiers you should know:
+                    <ul>
+                        <li>
+                            <strong>%s</strong> &nbsp;&nbsp;
+                            − String (or any object with a string representation, like numbers)
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <strong>%d</strong> &nbsp;&nbsp;
+                            − Integers
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <strong>%f</strong> &nbsp;&nbsp;
+                            − Floating point numbers
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <strong>%.(number of digits)f</strong> &nbsp;&nbsp;
+                            − Floating point numbers with a fixed amount of digits to the right of the dot.
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <strong>%x or %X</strong> &nbsp;&nbsp;
+                            − Integers in hexadecimal representation
+                        </li>
+                    </ul>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Conditions">
+            <header>Conditions</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Python uses boolean logic to evaluate conditions. The boolean values True and False are returned when a conditional expression is compared or evaluated.
+                    <a href="https://www.learnpython.org/en/Conditions" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p>
+                    Python uses indentation to define code blocks, instead of brackets. The standard Python indentation is 4 spaces, although tabs and any other space size will work, as long as it is consistent. Notice that code blocks do not need any termination.
+                </p>
+                <h3>"if"</h3>
+                <p>
+                    The if statement contains a logical expression using which data is compared and a decision is made based on the result of the comparison. If the boolean expression evaluates to TRUE, then the block of statement(s) inside the if statement is executed. If boolean expression evaluates to FALSE, then the first set of code after the end of the if statement(s) is executed.
+                    <a href="https://www.tutorialspoint.com/python/python_decision_making.htm" target="_blank"><sup>[tutorialspoint.com]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        if expression: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            statement(s)
+                    </code>
+                </p>
+                <p>
+                    Notice the colon mark <strong>:</strong> after the conditional expression. You will encounter a syntax error if you forget about it.
+                </p>
+                <h3>"else"</h3>
+                <p>
+                    An else statement can be combined with an if statement. An else statement contains the block of code that executes if the conditional expression in the if statement resolves to 0 or a FALSE value. The else statement is an optional statement and there could be at most only one else statement following if.
+                </p>
+                <p class="code">
+                    <code>
+                        if expression: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            statement(s) <br>
+                        else: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            statement(s)
+                    </code>
+                </p>
+                <h3>Nested "if" and "elif"</h3>
+                <p>
+                    There may be a situation when you want to check for another condition after a condition resolves to true. In such a situation, you can use the nested if construct. In a nested if construct, you can have an if...elif...else construct inside another if...elif...else construct.
+                </p>
+                <p class="code">
+                    <code>
+                        if expression1: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            statement(s) <br>
+                            &nbsp;&nbsp;&nbsp;
+                            if expression2: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                statement(s) <br>
+                            &nbsp;&nbsp;&nbsp;
+                            elif expression3: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                statement(s) <br>
+                            &nbsp;&nbsp;&nbsp;
+                            elif expression4: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                statement(s) <br>
+                            &nbsp;&nbsp;&nbsp;
+                            else: <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                statement(s) <br>
+                        else: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            statement(s)
+                    </code>
+                </p>
+                <h3>"and"</h3>
+                <p>
+                    The "and" boolean operator will evaluate two boolean expressions and return true only if both sides are true. If both the operands are true then condition becomes true.
+                </p>
+                <p class="code">
+                    <code>                        
+                        wizard = True <br>
+                        name = "Harry" <br>
+                        <br>
+                        if wizard and name == "Harry": <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print("Potter") <br>
+                    </code>
+                </p>
+                <h3>"or"</h3>
+                <p>
+                    The "or" boolean operator will evaluate two boolean expressions and return true if any of them are true. For numbers, if any of the two operands are non-zero then condition becomes true.
+                </p>
+                <p class="code">
+                    <code>
+                        a = 0 <br>
+                        b = 15 <br>
+                        if a or b: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print("Either a or b is true.")
+                    </code>
+                </p>
+                <h3>"not"</h3>
+                <p>
+                    Using "not" before a boolean expression inverts it. "not" is used to reverse the logical state of its operand.
+                </p>
+                <p class="code">
+                    <code>
+                        a = False <br>
+                        if not(a): <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print("a is False")
+                    </code>
+                </p>
+                <h3>"in" and "not in"</h3>
+                <p>
+                    The "in" operator could be used to check if a specified object exists within an iterable object container, such as a list. "in" evaluates to true if it finds a variable in the specified sequence and false otherwise. "not in" evaluates to true if it does not find a variable in the specified sequence and false otherwise.
+                    <a target="_blank" href="https://www.tutorialspoint.com/python/membership_operators_example.htm"><sup>[tutorialspoint.com]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        a = 1 <br>
+                        b = 10 <br>
+                        if a in [1, 2, 3, 4]: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print("Found 'a'") <br>
+                        if b not in [1, 2, 3, 4]: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print("Did not find 'b'")
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Loops">
+            <header>Loops</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    There are two types of loops in Python, for and while.
+                </p>
+                <h3>The "for" loop</h3>
+                <p>
+                    For loops iterate over a given sequence. For loops can also iterate over a sequence of numbers using the "range" function. Note that the range function is zero based.
+                    <a href="https://www.learnpython.org/en/Loops" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        primes = [2, 3, 5, 7] <br>
+                        for prime in primes: <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print(prime); <br>
+                        <br>
+                        # Prints out the numbers 0,1,2,3,4 <br>
+                        for x in range(5): <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print(x) <br>
+                        <br>
+                        # Prints out 3,4,5 <br>
+                        for x in range(3, 6): <br>
+                            &nbsp;&nbsp;&nbsp;
+                            print(x) <br>
+                        <br>
+                        # Prints out 3,5,7  <br>
+                        for x in range(3, 8, 2):  <br>                            
+                            &nbsp;&nbsp;&nbsp;
+                            print(x)  <br>
+                    </code>
+                </p>
+                <p>
+                    The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number.
+                    <a href="https://www.w3schools.com/python/ref_func_range.asp" target="_blank"><sup>[w3schools.com]</sup></a>
+                </p>
+                <h3>"while" loop</h3>
+                <p>
+                    While loops repeat as long as a certain boolean condition is met. The while loop requires a relevant variable to be ready. Here, for example, we used a variable <code>count</code>. Note: remember to increment it, or else the loop will continue forever.
+                </p>
+                <p class="code">
+                    <code>
+                        # Prints out 0,1,2,3,4 <br>
+                        count = 0  <br>
+                        while count < 5: <br> &nbsp;&nbsp;&nbsp;
+                            print(count) <br> &nbsp;&nbsp;&nbsp;
+                            count += 1  # This is the same as count = count + 1 
+                    </code>
+                </p>
+                <h3>"break" and "continue"</h3>
+                <p>
+                    <code>break</code> is used to exit a for loop or a while loop, whereas <code>continue</code> is used to skip the current block, and return to the "for" or "while" statement.
+                </p>
+                <h3>"else" for loops</h3>
+                <p>
+                    Unlike languages like C,CPP.. we can use else for loops. When the loop condition of <code>for</code> or <code>while</code> statement fails then code part in <code>else</code> is executed. If a break statement is executed inside the for loop then the <code>else</code> part is skipped. Note that the <code>else</code> part is executed even if there is a continue statement.
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Functions">
+            <header>Functions</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Functions are a convenient way to divide your code into useful blocks, allowing us to order our code, make it more readable, reuse it and save some time. Also functions are a key way to define interfaces so programmers can share their code. 
+                </p>
+                <p>
+                    Functions in python are defined using the block keyword <code>def</code>, followed with the function's name as the block's name.
+                    <a href="https://www.learnpython.org/en/Functions" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        def winterfell():  <br> &nbsp;&nbsp;&nbsp;
+                            print("Winter is coming...") 
+                    </code>
+                </p>
+                <p>
+                    Functions can receive arguments (variables passed from the caller to the function). Functions can also return a value to the caller, using the keyword- <code>return</code>. 
+                    To call a function, simply write the function's name followed by <code>()</code>, placing any required arguments within the parentheses.
+                </p>
+                <p class="code">
+                    <code>
+                        def sum_two_numbers(a, b): <br> &nbsp;&nbsp;&nbsp;
+                            return a + b <br>
+                        <br>
+                        x = sum_two_numbers(3, 4) <br>
+                        print(x) # prints 7
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="String_Operations">
+            <header>String Operations</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    In this section, we will explain various things that we can do to a string instead of just immediately printing it out. 
+                    <a href="https://www.learnpython.org/en/Basic_String_Operations" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p>
+                    Firstly, the <code>len()</code> method returns the number of items in an object. When the object is a string, the len() function returns the number of characters in the string.
+                </p>
+                <p class="code">
+                    <code>
+                        str = "Not today." <br>
+                        print(len(str)) # prints 10
+                    </code>
+                </p>
+                <p>
+                    The <code>index()</code> method searches the string for a specified value and returns the position (index) of where it was found. Note that indexes start at zero. The <code>index()</code> method raises an exception if the value is not found. 
+                    <a href="https://www.w3schools.com/python/python_ref_string.asp" target="_blank"><sup>[w3schools]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        str = “Fear cuts deeper than swords.” <br>
+                        print(str.index("cut"))  # prints 5
+                    </code>
+                </p>
+                <p>
+                    The <code>count()</code> method returns the number of times a specified value appears in the string.
+                </p>
+                <p class="code">
+                    <code>
+                        str = "Never forget what you are.." <br>
+                        print(str.count("r")) # prints 3
+                    </code>
+                </p>
+                <h3>Slicing Strings</h3>
+                <p>
+                    You can return a range of characters by using the slice syntax. The general form is <code>[start:stop:step]</code>. Specify the start index and the end index, separated by a colon, to return a part of the string. 
+                    <a href="https://www.w3schools.com/python/python_strings_slicing.asp" target="_blank"><sup>[w3schools]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        b = "Hello, World!" <br>
+                        print(b[2:5]) # prints llo <br>
+                        print(b[7:11:2]) # prints Wr
+                    </code>
+                </p>
+                <p>
+                    The slice syntax can also be used to reverse a string:
+                    <a href="https://www.w3schools.com/python/python_howto_reverse_string.asp" target="_blank"><sup>[w3schools]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        txt = "I wonder how this text looks like backwards" <br>
+                        print( txt[::-1] ) # sdrawkcab ekil skool txet siht woh rednow I
+                    </code>
+                </p>
+                <p>
+                    The <code>upper()</code> method returns a string where all characters are in upper case. The <code>lower()</code> method returns a string where all characters are lower case. Symbols and Numbers are ignored.
+                </p>
+                <p class="code">
+                    <code>
+                        str = "PyThoN" <br>
+                        print(str.upper()) # PYTHON <br>
+                        print(str.lower()) # python 
+                    </code>
+                </p>
+                <p>
+                    The <code>startswith()</code> method returns True if the string starts with the specified value, otherwise False. The <code>endswith()</code> method returns True if the string ends with the specified value, otherwise False.
+                </p>
+                <p class="code">
+                    <code>
+                        str = "you are so good to me" <br>
+                        if(str.startswith("you")) <br> &nbsp;&nbsp;&nbsp;
+                            print("it starts with you") <br>
+                            if(str.endswith("me")) <br> &nbsp;&nbsp;&nbsp;
+                                print("it ends with me") <br>
+                    </code>
+                </p>
+                <p>
+                    The <code>split()</code> method splits a string into a list. You can specify the separator, default separator is any whitespace. 
+                </p>
+                <p class="code">
+                    <code>
+                        str = "harry potter and the half blood prince" <br>
+                        list = str.split() # ['harry', 'potter', 'and', 'the', 'half', 'blood', 'prince']
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Classes_and_Objects">
+            <header>Classes and Objects</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    Objects are an encapsulation of variables and functions into a single entity. Objects get their variables and functions from classes. Classes are essentially a template to create your objects.
+                    <a href="https://www.learnpython.org/en/Classes_and_Objects" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        class MyClass: <br>
+                            variable = "wolf" <br> &nbsp;&nbsp;&nbsp;
+                            <br>
+                            def function(self): <br> &nbsp;&nbsp;&nbsp;
+                                print("This is a message inside the class.") <br>
+                        <br>
+                        myobjectx = MyClass() <br>
+                    </code>
+                </p>
+                <p>
+                    Now the variable <code>myobjectx</code> holds an object of the class <code>MyClass</code> that contains the variable and the function defined within the class called <code>MyClass</code>. To access the variable inside of the newly created object "myobjectx" you would do the following:
+                    <code>
+                        print(myobjectx.variable) 
+                    </code>
+                </p>
+                <p>
+                    You can create multiple different objects that are of the same class(have the same variables and functions defined). However, each object contains independent copies of the variables defined in the class.
+                </p>
+                <p class="code">
+                    <code>
+                        myobjecty = MyClass() <br> 
+                        myobjecty.variable = "dragon" <br>
+                        print(myobjectx.variable) # still prints "wolf" <br>
+                        print(myobjecty.variable) # prints "dragon"
+                    </code>
+                </p>
+                <p>
+                    To access a function inside of an object you use notation similar to accessing a variable: <code>myobjectx.function()</code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Dictionaries">
+            <header>Dictionaries</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    A dictionary is a data type similar to arrays, but works with keys and values instead of indexes. Each value stored in a dictionary can be accessed using a key, which is any type of object (a string, a number, a list, etc.) instead of using its index to address it. For example, a database of phone numbers could be stored using a dictionary like this:
+                    <a href="https://www.learnpython.org/en/Dictionaries" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        phonebook = {}  <br>
+                        phonebook["Jon"] = 938477566 <br>
+                        phonebook["Arya"] = 947662781 <br>
+                    </code>
+                </p>
+                <p>
+                    Alternatively, a dictionary can be initialized in the following notation:
+                </p>
+                <p class="code">
+                    <code>
+                        phonebook = {  <br> &nbsp;&nbsp;&nbsp;
+                            "Bran" : 932643837 <br> &nbsp;&nbsp;&nbsp;
+                            "Sansa" : 938377264 <br>
+                        }
+                    </code>
+                </p>
+                <p>
+                    Dictionaries can be iterated over, just like a list. However, a dictionary, unlike a list, does not keep the order of the values stored in it. To iterate over key value pairs, use the following syntax:
+                </p>
+                <p class="code">
+                    <code>
+                        for name, number in phonebook.items(): <br> &nbsp;&nbsp;&nbsp;
+                            print("Phone number of %s is %d" % (name, number))
+                    </code>
+                </p>
+                <p>
+                    To remove a specified index, use either one of the following notations:
+                </p>
+                <p class="code">
+                    <code>
+                        del phonebook["Bran"] <br>
+                        phonebook.pop("Sansa") <br>
+                        print(phonebook)
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Modules_and_Packages">
+            <header>Modules and Packages</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    In programming, a module is a piece of software that has a specific functionality. Each module is a different file, which can be edited separately.
+                </p>
+                <h3>Writing modules</h3>
+                <p>
+                    Modules in Python are simply Python files with a <code>.py</code> extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.  Modules are imported from other modules using the <code>import</code> command. For example:
+                    <a href="https://www.learnpython.org/en/Modules_and_Packages" target="_blank"><sup>[learnpython.org]</sup></a>
+                </p>
+                <p class="code">
+                    <code>
+                        # game.py <br> 
+                        # import the draw module <br> 
+                        import draw <br> 
+                        <br> 
+                        def play_game(): <br>  &nbsp;&nbsp;&nbsp;
+                            ... <br> 
+                        <br> 
+                        def main(): <br>  &nbsp;&nbsp;&nbsp;
+                            result = play_game() <br>  &nbsp;&nbsp;&nbsp;
+                            draw.draw_game(result) <br> 
+                        <br> 
+                        # this means that if this script is executed, then  <br> 
+                        # main() will be executed <br> 
+                        if __name__ == '__main__': <br>  &nbsp;&nbsp;&nbsp;
+                            main() <br> 
+                    </code>
+                </p>
+                <p>The <code>draw</code> module may look something like this:</p>
+                <p class="code">
+                    <code>
+                        # draw.py <br>
+                        <br>
+                        def draw_game(): <br> &nbsp;&nbsp;&nbsp;
+                            ... <br>
+                        <br>
+                        def clear_screen(screen): <br> &nbsp;&nbsp;&nbsp;
+                            ... <br>
+                    </code>
+                </p>
+                <p>
+                    To use a function draw_game from a module, we would need to specify in which module the function is implemented, using the dot operator: 
+                </p>
+                <p class="code">
+                    <code>draw.draw_game()</code>
+                </p>
+                <p>
+                    When the import directive is run, the Python interpreter looks for a file in the directory which the script was executed from, by the name of the module with a .py suffix. If it finds one, it will import it. If not, it will continue to look for built-in modules.
+                </p>
+                <p>
+                    You may have noticed that when importing a module, a <code>.pyc</code> file appears, which is a compiled Python file. Python compiles files into Python bytecode so that it won't have to parse the files each time modules are loaded. If a <code>.pyc</code> file exists, it gets loaded instead of the <code>.py</code> file, but this process is transparent to the user.
+                </p>
+                <h3>Importing module objects</h3>
+                <p>
+                    We may also import a function directly into the main script's namespace, by using the <code>from</code> command.
+                </p>
+                <p class="code">
+                    <code>
+                        # game.py <br>
+                        # import the draw module <br>
+                        from draw import draw_game <br>
+                        <br>
+                        def main(): <br> &nbsp;&nbsp;&nbsp;
+                            result = play_game() <br> &nbsp;&nbsp;&nbsp;
+                            draw_game(result) <br>
+                    </code>
+                </p>
+                <p>
+                    You may have noticed that in this example, <code>draw_game</code> does not precede with the name of the module it is imported from, because we've specified the module name in the <code>import</code> command.
+                </p>
+                <p>
+                    The advantages of using this notation is that it is easier to use the functions inside the current module because you don't need to specify which module the function comes from. However, any namespace cannot have two objects with the exact same name, so the import command may replace an existing object in the namespace.
+                </p>
+                <h3>Importing all objects from a module</h3>
+                <p>
+                    We may also use the <code>import *</code> command to import all objects from a specific module, like this: 
+                </p>
+                <p class="code">
+                    <code>from draw import *</code> 
+                </p>
+                <p>
+                    This might be a bit risky as changes in the module might affect the module which imports it, but it is shorter and also does not require you to specify which objects you wish to import from the module.
+                </p>
+                <h3>Custom import name</h3>
+                <p>
+                    We may also load modules under any name we want. This is useful when we want to import a module conditionally to use the same name in the rest of the code. For example, if you have two <code>draw</code> modules with slighty different names - you may do the following:
+                </p>
+                <p class="code">
+                    <code>
+                        # game.py <br>
+                        # import the draw module <br>
+                        if visual_mode: <br>  &nbsp;&nbsp;&nbsp;
+                            # in visual mode, we draw using graphics <br>  &nbsp;&nbsp;&nbsp;
+                            import draw_visual as draw <br>
+                        else: <br>  &nbsp;&nbsp;&nbsp;
+                            # in textual mode, we print out text <br>  &nbsp;&nbsp;&nbsp;
+                            import draw_textual as draw <br>
+                        <br>
+                        def main(): <br>  &nbsp;&nbsp;&nbsp;
+                            result = play_game() <br>  &nbsp;&nbsp;&nbsp;
+                            # this can either be visual or textual depending on visual_mode <br>  &nbsp;&nbsp;&nbsp;
+                            draw.draw_game(result) <br>
+                    </code>
+                </p>
+                <h3>Module initialization</h3>
+                <p>
+                    The first time a module is loaded into a running Python script, it is initialized by executing the code in the module once. If another module in your code imports the same module again, it will not be loaded twice but once only - so local variables inside the module act as a "singleton" - they are initialized only once. This is useful to know, because this means that you can rely on this behavior for initializing objects. For example:
+                </p>
+                <p class="code">
+                    <code>
+                        # draw.py <br>
+                        <br>
+                        def draw_game(): <br> &nbsp;&nbsp;&nbsp;
+                            # when clearing the screen we can use the main screen object initialized in this module <br> &nbsp;&nbsp;&nbsp;
+                            clear_screen(main_screen) <br> &nbsp;&nbsp;&nbsp;
+                            ... <br>
+                        <br>
+                        def clear_screen(screen): <br> &nbsp;&nbsp;&nbsp;
+                            ... <br>
+                        <br>
+                        class Screen(): <br> &nbsp;&nbsp;&nbsp;
+                            ... <br>
+                        <br>
+                        # initialize main_screen as a singleton <br>
+                        main_screen = Screen() <br>
+                    </code>
+                </p>
+                <h3>Extending module load path</h3>
+                <p>
+                    There are a couple of ways we could tell the Python interpreter where to look for modules, aside from the default, which is the local directory and the built-in modules. You could either use the environment variable <code>PYTHONPATH</code> to specify additional directories to look for modules in, like this: 
+                </p>
+                <p class="code">
+                    <code>PYTHONPATH=/foo python game.py</code>
+                </p>
+                <p>
+                    This will execute <code>game.py</code>, and will enable the script to load modules from the foo directory as well as the local directory. 
+                </p>
+                <p>
+                    Another method is the <code>sys.path.append</code> function. You may execute it before running an import command. This will add the foo directory to the list of paths to look for modules in as well.
+                </p>
+                <p class="code">
+                    <code>sys.path.append("/foo")</code>
+                </p>
+                <h3>Exploring built-in modules</h3>
+                <p>
+                    Check out the full list of built-in modules in the Python standard library at 
+                    <a href="https://docs.python.org/3/library/" target="_blank">docs.python.org</a>.
+                    Two very important functions come in handy when exploring modules in Python - the <code>dir</code> and <code>help</code> functions.
+                </p>
+                <p>
+                    If we want to import the module <code>urllib</code>, which enables us to create read data from URLs, we simply import the module:
+                </p>
+                <p class="code">
+                    <code>
+                        # import the library <br>
+                        import urllib <br>
+                        <br>
+                        # use it <br>
+                        urllib.urlopen(...) <br>
+                    </code>
+                </p>
+                <p>
+                    We can look for which functions are implemented in each module by using the dir function:
+                </p>
+                <p class="code"> 
+                    <code>
+                        >>> import urllib <br>
+                        >>> dir(urllib)
+                    </code>
+                </p>
+                <p>
+                    When we find the function in the module we want to use, we can read about it more using the help function, inside the Python interpreter:
+                </p>
+                <p class="code">
+                    <code>help(urllib.urlopen)</code>
+                </p>
+                <h3>Writing packages</h3>
+                <p>
+                    Packages are namespaces which contain multiple packages and modules themselves. They are simply directories, but with a twist.
+                </p>
+                <p>
+                    Each package in Python is a directory which MUST contain a special file called <code>__init__.py</code>. This file can be empty, and it indicates that the directory it contains is a Python package, so it can be imported the same way a module can be imported. For example, to use the module bar, we can import it in two ways:
+                </p>
+                <p class="code">
+                    <code>import foo.bar</code>
+                </p>
+                &emsp; &emsp; or
+                <p class="code">
+                    <code>from foo import bar</code>
+                </p>
+                <p>
+                    In the first method, we must use the foo prefix whenever we access the module bar. In the second method, we don't, because we import the module to our module's namespace.
+                </p>
+                <p>
+                    The <code>__init__.py</code> file can also decide which modules the package exports as the API, while keeping other modules internal, by overriding the <code>__all__</code> variable, like so:
+                </p>
+                <p class="code">
+                    <code>
+                        __init__.py: <br>
+                        <br>
+                        __all__ = ["bar"] <br>
+                    </code>
+                </p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <a class="toplink" href="#navbar" title="Top of Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                </svg>
+            </a>
+            <article>
+                <p>
+                    This is for the 
+                    <a href="https://www.freecodecamp.org/learn/" target="_blank">FreeCodeCamp</a> 
+                    Responsive Web Design Project: 
+                    <a href="https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page" target="_blank">
+                    Build a Technical Documentation Page</a>.
+                </p>
+                <p>
+                    Most of the content in here are taken from 
+                    <a href="https://www.learnpython.org/" target="_blank">LearnPython.org</a>
+                    interactive Python tutorial. I used a tutorial instead of the docs since I am an absolute Python Newbie. 
+                    <!-- Running the scripts in the examples, is my first touch with Python. I thought it would be fun to learn a new language while doing the project.  -->
+                </p>
+                <p>
+                    Here's a list of all my references:
+                    <ul>
+                        <li>
+                            <a href="https://www.learnpython.org/" target="_blank">LearnPython.org</a>
+                            − an interactive Python tutorial. Whether you are an experienced programmer or not, this website is intended for everyone who wishes to learn the Python programming language.
+                        </li>
+                        <li>
+                            <a href="https://www.tutorialspoint.com/python/index.htm" target="_blank">Tutorials Point</a>
+                            − Simply Easy Learning. Tutorials Point originated from the idea that there exists a class of readers who respond better to online content and prefer to learn new skills at their own pace from the comforts of their drawing rooms.
+                        </li>
+                        <li>
+                            <a href="https://www.python.org/" target="_blank">Python.org</a>
+                            − Official Python website by the Python Software Foundation, the organization behind Python. They have this mission "to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers."
+                        </li>
+                        <li>
+                            <a href="https://realpython.com/" target="_blank">RealPython.com</a>
+                            − At Real Python you can learn all things Python from the ground up. Everything from the absolute basics of Python, to web development and web scraping, to data visualization, and beyond.
+                        </li>
+                        <li>
+                            <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+                            − W3Schools is a school for web developers, covering all the aspects of web development. The tutorials start from basic level and move all the way up to professional references.
+                        </li>
+                        <li>
+                            <a href="https://docs.python.org/3/reference/index.html" target="_blank">The Python Language Reference</a>
+                            − This reference manual describes the syntax and “core semantics” of the language. It is terse, but attempts to be exact and complete.
+                        </li>
+                        <li>
+                            <a href="https://docs.python.org/3/library/" target="_blank">The Python Standard Library</a>
+                            − This library reference manual describes the standard library that is distributed with Python. It also describes some of the optional components that are commonly included in Python distributions.
+                        </li>
+                    </ul>
+                </p>
+            </article>
+        </section>
+
+        <footer>
+            <small>
+                A <a href="https://www.freecodecamp.org/learn/" target="_blank">FreeCodeCamp</a> 
+                Responsive Web Design Project: 
+                <a href="https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page" target="_blank">
+                Build a Technical Documentation Page</a>.
+                <br> Created by Karla Vargas on February 2021.
+            </small>
+        </footer>
+    </main>
+
+    <script src="bundle.js"></script>
+</body>
+
+</html>
+
+<!-- 
+    https://www.learnpython.org/en/Welcome
+-->
