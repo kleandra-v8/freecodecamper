@@ -1,43 +1,52 @@
 import React, { useState } from 'react';
 import HomeButton from '../HomeButton';
 import buttons from './buttons';
-import { isNumber } from './helpers';
+import {
+    isNumber,
+    isOperator,
+    inputAZero,
+    inputANumber,
+    inputADecimal,
+    inputAnOperator,
+} from './helpers';
 
 /**
-    User Story #8: As I input numbers, I should be able to see my input in the element with the id of display.
+ 
+User Story #11: When the decimal element is clicked, 
+a . should append to the currently displayed value; 
+two . in one number should not be accepted.
 
-    User Story #10: When inputting numbers, my calculator should not allow a number to begin with multiple zeros.
 */
 
 function Calculator() {
-    const [input, setInput] = useState('0');
-    const [formula, setFormula] = useState(' ');
+    const [display, setDisplay] = useState('0');
+    const [formula, setFormula] = useState('');
 
     const handleClear = () => {
         console.log(`Clearing display`);
-        setInput('0');
+        setDisplay('0');
         setFormula('');
     };
 
-    const handleInput = (newInput) => {
-        console.log(`handle Input:`, newInput);
+    const handleInput = (input) => {
+        let newState;
 
-        if (isNumber(newInput)) {
-            if (input === '0') {
-                setInput(newInput);
-            } else if (isNumber(input)) {
-                setInput((i) => i + newInput);
-            } else {
-                setInput(newInput);
-            }
-        } else {
-            if (isNumber(input)) {
-                setFormula((f) => f + input + newInput);
-                setInput(newInput);
-            } else {
-                setFormula((f) => f + newInput);
-                setInput(newInput);
-            }
+        if (input === '0') newState = inputAZero(display, input, formula);
+        else if (input === '.')
+            newState = inputADecimal(display, input, formula);
+        else if (isNumber(input))
+            newState = inputANumber(display, input, formula);
+        else if (isOperator(input))
+            newState = inputAnOperator(display, input, formula);
+        else console.log('Invalid Input!');
+
+        console.log('newState:', newState);
+
+        if (newState) {
+            if (display !== newState.display)
+                setDisplay(() => newState.display);
+            if (formula !== newState.formula)
+                setFormula(() => newState.formula);
         }
     };
 
@@ -47,9 +56,9 @@ function Calculator() {
 
             <div className='screen'>
                 <div id='formula' className='green'>
-                    &nbsp; {formula}
+                    &nbsp;{formula}
                 </div>
-                <div id='display'>{input}</div>
+                <div id='display'>{display}</div>
             </div>
 
             <div className='btn-box'>
