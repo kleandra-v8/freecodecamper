@@ -1,6 +1,6 @@
 export const isNumber = (str) => /\d+([.]?\d*)/.test(str);
 
-export const isOperator = (str) => /[/*\-+]+/.test(str);
+export const isOperator = (str) => /[/*\-+=]+/.test(str);
 
 export const hasDecimal = (str) => /[.]/.test(str);
 
@@ -87,22 +87,26 @@ export const inputAnOperator = (o, n, f) => {
         if (n === '*')
             return {
                 display: n,
-                formula: f + o + n,
+                formula: f + ' ' + o + ' ' + n,
             };
         else return null;
     }
     if (isNumber(o)) {
         return {
             display: n,
-            formula: f + o + n,
+            formula: f + ' ' + o + ' ' + n,
         };
     }
     if (isOperator(o)) {
         return {
             display: n,
-            formula: f + n,
+            formula: f + ' ' + n,
         };
     }
 
     return null;
+};
+
+export const calculate = (f) => {
+    console.log('calculating..', f);
 };
