@@ -1,3 +1,5 @@
+import buttons from './buttons';
+
 export const isNumber = (str) => /\d+([.]?\d*)/.test(str);
 
 export const isOperator = (str) => /[/*\-+=]+/.test(str);
@@ -109,4 +111,26 @@ export const inputAnOperator = (o, n, f) => {
 
 export const calculate = (f) => {
     console.log('calculating..', f);
+};
+
+export const keyboardEventHandler = (e) => {
+    const keyd = '' + e.key;
+    console.log('KEY:', keyd, typeof keyd);
+
+    let id;
+    if (keyd === '=' || keyd === 'Enter') id = 'equals';
+    else {
+        const input = buttons.find((b) => b.input === keyd);
+        id = input?.id;
+    }
+
+    const btn = id ? document.getElementById(id) : null;
+    console.log('BUTTON:', btn);
+
+    if (btn) {
+        // simulate mouse click
+        btn.dispatchEvent(
+            new MouseEvent('click', { bubbles: true, view: window })
+        );
+    }
 };

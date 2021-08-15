@@ -5,13 +5,13 @@ const buttons = [
         id: 'decimal',
         input: '.',
         display: '.',
-        color: 'pink',
+        color: 'green',
     },
     {
         id: 'divide',
         input: '/',
         display: '÷',
-        color: 'pink',
+        color: 'green',
     },
     {
         id: 'seven',
@@ -35,7 +35,7 @@ const buttons = [
         id: 'multiply',
         input: '*',
         display: '×',
-        color: 'pink',
+        color: 'green',
     },
     {
         id: 'four',
@@ -59,7 +59,7 @@ const buttons = [
         id: 'subtract',
         input: '-',
         display: '−',
-        color: 'pink',
+        color: 'green',
     },
     {
         id: 'one',
@@ -83,7 +83,7 @@ const buttons = [
         id: 'add',
         input: '+',
         display: '+',
-        color: 'pink',
+        color: 'green',
     },
     {
         id: 'zero',

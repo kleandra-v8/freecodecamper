@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HomeButton from '../HomeButton';
 import buttons from './buttons';
 import {
@@ -9,6 +9,7 @@ import {
     inputADecimal,
     inputAnOperator,
     calculate,
+    keyboardEventHandler,
 } from './helpers';
 
 /**
@@ -31,7 +32,7 @@ function Calculator() {
         setFormula('');
     };
 
-    const handleInput = (input) => {
+    const handleInput = async (input) => {
         let newState;
 
         if (input === '0') newState = inputAZero(display, input, formula);
@@ -47,16 +48,23 @@ function Calculator() {
 
         if (newState) {
             if (display !== newState.display)
-                setDisplay(() => newState.display);
+                await setDisplay(() => newState.display);
             if (formula !== newState.formula)
-                setFormula(() => newState.formula);
+                await setFormula(() => newState.formula);
         }
     };
 
-    const handleEquals = () => {
-        handleInput('=');
+    const handleEquals = async () => {
+        await handleInput('=');
         calculate(formula);
     };
+
+    useEffect(() => {
+        window.addEventListener('keydown', keyboardEventHandler);
+        return () => {
+            window.removeEventListener('keydown', keyboardEventHandler);
+        };
+    }, []);
 
     return (
         <section className='the-calculator'>
@@ -91,7 +99,7 @@ function Calculator() {
                     <button
                         id='equals'
                         onClick={handleEquals}
-                        className='calc-btn green'
+                        className='calc-btn pink'
                     >
                         =
                     </button>
