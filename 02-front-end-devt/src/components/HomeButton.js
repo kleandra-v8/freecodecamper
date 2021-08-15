@@ -7,7 +7,7 @@ function HomeButton() {
     return (
         <div className='home-button'>
             <Link to='/'>
-                <HomeIcon fontSize='large' />
+                <HomeIcon />
             </Link>
         </div>
     );

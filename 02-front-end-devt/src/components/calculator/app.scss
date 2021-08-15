@@ -1,14 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Fira+Code:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap');
+
 .calculator-app {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
     width: 100%;
     min-height: 100vh;
-    padding: 2rem;
-    color: aqua;
-    background-color: #000a;
+    padding: 4rem 1.5rem 2rem;
+    text-align: center;
+    color: #f8f5f1;
+    background-color: #000b;
+
+    h1 {
+        font-size: 2rem;
+        font-family: 'Palette Mosaic', cursive;
+        color: #f8f5f1;
+    }
 
     .the-calculator {
-        color: aquamarine;
+        max-width: 400px;
+        font-family: 'Fira Code', monospace;
+        color: #fff;
+        background-color: #22252d;
+        border-radius: 21px;
+
+        .screen {
+            padding: 1.25rem;
+            text-align: right;
+
+            #formula {
+                padding-bottom: 12px;
+                font-size: 0.9rem;
+            }
+            #display {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+        }
+
+        .btn-box {
+            // display: flex;
+            // justify-content: center;
+            padding: 1rem;
+            background-color: #2a2d37;
+            border-radius: 21px;
+
+            .btn-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+                gap: 10px;
+                margin: 0 auto;
+            }
+
+            .calc-btn {
+                padding: 8px 15px;
+                font-size: 1.1rem;
+                background-color: #282b33;
+                border: 3px solid #282b33a1;
+                border-radius: 11px;
+                transition: 200ms ease-in-out;
+            }
+            .calc-btn:hover {
+                background-color: #22252d;
+                border-color: #22252d99;
+            }
+            .calc-btn:active {
+                background-color: #000c;
+                border-color: #000a;
+            }
+
+            #clear {
+                grid-area: 1 / span 2;
+            }
+            #equals {
+                grid-area: 5 / 2 / -1 / -1;
+            }
+        }
+
+        #decimal,
+        #divide,
+        #multiply,
+        #add,
+        #subtract,
+        #equals {
+            padding: 4px 8px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .white {
+            color: #ded;
+        }
+        .green {
+            color: #47ddc4;
+        }
+        .pink {
+            color: #f37a7c;
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .calculator-app {
+        gap: 3rem;
+        padding: 4rem;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .the-calculator {
+            border-radius: 30px;
+            max-width: 550px;
+
+            .screen {
+                padding: 2rem 1.5rem;
+
+                #formula {
+                    padding-bottom: 20px;
+                    font-size: 1.2rem;
+                }
+                #display {
+                    font-size: 2rem;
+                    font-weight: 500;
+                }
+            }
+
+            .btn-box {
+                padding: 30px;
+                border-radius: 30px;
+
+                .btn-grid {
+                    gap: 15px;
+                }
+
+                .calc-btn {
+                    padding: 12px 30px;
+                    font-size: 1.9rem;
+                    border-width: 5px;
+                    border-radius: 20px;
+                }
+            }
+
+            #decimal,
+            #divide,
+            #multiply,
+            #add,
+            #subtract,
+            #equals {
+                padding: 8px 15px;
+                font-size: 2.2rem;
+                font-weight: 400;
+            }
+        }
     }
 }
