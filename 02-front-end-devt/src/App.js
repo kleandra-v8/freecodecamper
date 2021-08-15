@@ -15,7 +15,7 @@ function App() {
                     <Link to='/drum-machine'>Drum Machine</Link>
                 </h2>
                 <h2 className='App-link'>
-                    <Link to='/calculator'>Calculator</Link>
+                    <Link to='/calculator'>JavaScript Calculator</Link>
                 </h2>
             </header>
         </div>
