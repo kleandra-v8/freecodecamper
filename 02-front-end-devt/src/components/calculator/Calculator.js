@@ -1,21 +1,44 @@
 import React, { useState } from 'react';
 import HomeButton from '../HomeButton';
 import buttons from './buttons';
+import { isNumber } from './helpers';
 
 /**
-    User Story #7: At any time, pressing the clear button clears the input and output values, 
-    and returns the calculator to its initialized state; 
-    0 should be shown in the element with the id of display.
+    User Story #8: As I input numbers, I should be able to see my input in the element with the id of display.
+
+    User Story #10: When inputting numbers, my calculator should not allow a number to begin with multiple zeros.
 */
 
 function Calculator() {
-    const [input, setInput] = useState('12345.06789');
-    const [formula, setFormula] = useState('12 / 345.06 + 78 * 9');
+    const [input, setInput] = useState('0');
+    const [formula, setFormula] = useState(' ');
 
     const handleClear = () => {
         console.log(`Clearing display`);
         setInput('0');
-        setFormula(' ');
+        setFormula('');
+    };
+
+    const handleInput = (newInput) => {
+        console.log(`handle Input:`, newInput);
+
+        if (isNumber(newInput)) {
+            if (input === '0') {
+                setInput(newInput);
+            } else if (isNumber(input)) {
+                setInput((i) => i + newInput);
+            } else {
+                setInput(newInput);
+            }
+        } else {
+            if (isNumber(input)) {
+                setFormula((f) => f + input + newInput);
+                setInput(newInput);
+            } else {
+                setFormula((f) => f + newInput);
+                setInput(newInput);
+            }
+        }
     };
 
     return (
@@ -24,7 +47,7 @@ function Calculator() {
 
             <div className='screen'>
                 <div id='formula' className='green'>
-                    {formula}
+                    &nbsp; {formula}
                 </div>
                 <div id='display'>{input}</div>
             </div>
@@ -41,6 +64,7 @@ function Calculator() {
                     {buttons.map((b) => (
                         <button
                             id={b.id}
+                            onClick={() => handleInput(b.input)}
                             key={`calc-btn-${b.id}`}
                             className={`calc-btn ${b.color}`}
                         >
