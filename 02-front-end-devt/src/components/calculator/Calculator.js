@@ -12,15 +12,6 @@ import {
     keyboardEventHandler,
 } from './helpers';
 
-/**
-
-    User Story #13: If 2 or more operators are entered consecutively, 
-    the operation performed should be the last operator entered (excluding the negative (-) sign). 
-    For example, if 5 + * 7 = is entered, the result should be 35 (i.e. 5 * 7); 
-    if 5 * - 5 = is entered, the result should be -25 (i.e. 5 * (-5)).
-
-*/
-
 function Calculator() {
     const [display, setDisplay] = useState('0');
     const [formula, setFormula] = useState('');
@@ -45,9 +36,11 @@ function Calculator() {
 
         if (newCalc) {
             setNewCalc(false);
-            console.log('New Calculation!');
             handleClear();
-            oldInput = '0';
+
+            console.log('New Calculation!');
+
+            oldInput = isOperator(newInput) ? display : '0';
             oldFormula = '';
         }
 
@@ -81,6 +74,7 @@ function Calculator() {
             setFormula(f + ' =');
 
             const ans = '' + calculate(f);
+            console.log('Answer:', ans);
             setDisplay(ans);
         }
     };
