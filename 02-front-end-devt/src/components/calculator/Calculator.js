@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import HomeButton from '../HomeButton';
 import buttons from './buttons';
 import {
@@ -25,38 +25,65 @@ User Story #13: If 2 or more operators are entered consecutively, the operation 
 function Calculator() {
     const [display, setDisplay] = useState('0');
     const [formula, setFormula] = useState('');
+    const [newCalc, setNewCalc] = useState(false);
+    const refEquals = useRef(null);
 
     const handleClear = () => {
-        console.log(`Clearing display`);
+        console.clear();
+
         setDisplay('0');
         setFormula('');
+
+        refEquals.current.focus();
     };
 
-    const handleInput = async (input) => {
-        let newState;
+    const handleInput = (newInput) => {
+        console.log('Handle Input!');
 
-        if (input === '0') newState = inputAZero(display, input, formula);
-        else if (input === '.')
-            newState = inputADecimal(display, input, formula);
-        else if (isNumber(input))
-            newState = inputANumber(display, input, formula);
-        else if (isOperator(input))
-            newState = inputAnOperator(display, input, formula);
+        let newState = null,
+            oldInput = display,
+            oldFormula = formula;
+
+        if (newCalc) {
+            setNewCalc(false);
+            console.log('New Calculation!');
+            handleClear();
+            oldInput = '0';
+            oldFormula = '';
+        }
+
+        if (newInput === '0')
+            newState = inputAZero(oldInput, newInput, oldFormula);
+        else if (newInput === '.')
+            newState = inputADecimal(oldInput, newInput, oldFormula);
+        else if (isNumber(newInput))
+            newState = inputANumber(oldInput, newInput, oldFormula);
+        else if (isOperator(newInput))
+            newState = inputAnOperator(oldInput, newInput, oldFormula);
         else console.log('Invalid Input!');
 
-        console.log('newState:', newState);
+        // console.log('newState:', newState);
 
         if (newState) {
-            if (display !== newState.display)
-                await setDisplay(() => newState.display);
-            if (formula !== newState.formula)
-                await setFormula(() => newState.formula);
+            setDisplay(() => newState.display);
+            setFormula(() => newState.formula);
         }
     };
 
-    const handleEquals = async () => {
-        await handleInput('=');
-        calculate(formula);
+    const handleEquals = () => {
+        console.log('handle Equals!');
+
+        setNewCalc(true);
+
+        const newState = inputAnOperator(display, '=', formula);
+
+        if (newState) {
+            const f = newState.formula;
+            setFormula(f + ' =');
+
+            const ans = '' + calculate(f);
+            setDisplay(ans);
+        }
     };
 
     useEffect(() => {
@@ -79,13 +106,6 @@ function Calculator() {
 
             <div className='btn-box'>
                 <div className='btn-grid'>
-                    <button
-                        id='clear'
-                        onClick={handleClear}
-                        className='calc-btn pink'
-                    >
-                        AC
-                    </button>
                     {buttons.map((b) => (
                         <button
                             id={b.id}
@@ -100,8 +120,16 @@ function Calculator() {
                         id='equals'
                         onClick={handleEquals}
                         className='calc-btn pink'
+                        ref={refEquals}
                     >
                         =
+                    </button>
+                    <button
+                        id='clear'
+                        onClick={handleClear}
+                        className='calc-btn pink'
+                    >
+                        AC
                     </button>
                 </div>
             </div>
