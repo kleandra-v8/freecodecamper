@@ -1,12 +1,12 @@
 import buttons from './buttons';
 import { multiply, divide, add, subtract, toNumber } from 'lodash';
 
-const OPERATIONS = [
-    { char: '*', fn: multiply },
-    { char: '/', fn: divide },
-    { char: '+', fn: add },
-    { char: '-', fn: subtract },
-];
+const OPERATIONS = {
+    '*': multiply,
+    '/': divide,
+    '+': add,
+    '-': subtract,
+};
 
 export const isNumber = (str) => /\d+([.]?\d*)/.test(str);
 
@@ -122,51 +122,49 @@ export const calculate = (f) => {
     let answer;
 
     // Split the formula string
-    const input = f.split(' ');
-    console.log('input:', input);
-
-    // Clean up the formula
-    if (!input[0]) input.shift();
-    if (isOperator(input[input.length - 1])) input.pop();
-    console.log('input:', input);
+    const input = f.trim().split(' ');
+    // console.log('input:', input);
 
     let arr = input.slice();
-    OPERATIONS.forEach((op) => {
-        arr = operate(arr, op);
-    });
+    arr = operate(arr, '*/');
+    arr = operate(arr, '+-');
 
-    console.log('arr calculated:', arr);
-    answer = arr.pop();
+    // console.log('arr calculated:', arr);
+    answer = arr?.pop();
 
     return answer;
 };
 
-export const operate = (arr, op) => {
+export const operate = (arr, ops) => {
     if (!arr) return [];
 
-    let index = arr.indexOf(op.char);
-    console.log(`: ${index} is the indexOf ${op.char} in ${arr}`);
+    let index = arr.findIndex((i) => i === ops[0] || i === ops[1]);
+    // console.log('Index:', index);
 
     if (index < 1) return arr;
 
+    let char = arr[index];
+    let operation = OPERATIONS[char];
+    // console.log(`... ${index} is the indexOf ${char} in ${arr}.`);
+
     let left = arr.slice(0, index - 1);
-    console.log('left', left);
+    // console.log('left', left);
 
     let middle = arr.slice(index - 1, index + 2);
-    console.log('middle', middle);
+    // console.log('middle', middle);
 
     let right = arr.slice(index + 2);
-    console.log('right', right);
+    // console.log('right', right);
 
     let answer;
-    let a = toNumber(middle[0]);
-    let b = toNumber(middle[2]);
-    if (a && b) answer = op.fn(a, b);
+    let a = Number(middle[0]);
+    let b = Number(middle[2]);
+    answer = operation(a, b);
 
     let after = [...left, answer, ...right];
-    console.log('after', after);
+    // console.log('after', after);
 
-    return operate(after, op);
+    return operate(after, ops);
 };
 
 export const keyboardEventHandler = (e) => {
