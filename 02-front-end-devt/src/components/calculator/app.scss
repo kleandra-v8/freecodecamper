@@ -76,7 +76,7 @@
                 letter-spacing: 0.05em;
             }
             #equals {
-                grid-area: 5 / 2 / -1 / -1;
+                grid-area: 5 / 3 / -1 / -1;
             }
         }
 
@@ -90,6 +90,14 @@
             font-size: 1.3rem;
             font-weight: 500;
             font-family: 'Roboto Mono', monospace;
+        }
+        #backspace {
+            padding: 0;
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
         }
 
         .white {
@@ -155,6 +163,10 @@
                 padding: 8px 15px;
                 font-size: 2.2rem;
                 font-weight: 400;
+            }
+            #backspace svg {
+                width: 30px;
+                height: 30px;
             }
         }
     }

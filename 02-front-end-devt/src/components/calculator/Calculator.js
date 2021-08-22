@@ -11,6 +11,7 @@ import {
     calculate,
     keyboardEventHandler,
 } from './helpers';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 
 function Calculator() {
     const [display, setDisplay] = useState('0');
@@ -79,6 +80,19 @@ function Calculator() {
         }
     };
 
+    const handleBackspace = () => {
+        if (display.length && display !== '0') {
+            setDisplay((state) => {
+                let d = state.slice(0, -1);
+                return d ? d : '0';
+            });
+        } else if (formula.length) {
+            setFormula((state) =>
+                state.trim().split(' ').slice(0, -1).join(' ')
+            );
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('keydown', keyboardEventHandler);
         return () => {
@@ -99,6 +113,20 @@ function Calculator() {
 
             <div className='btn-box'>
                 <div className='btn-grid'>
+                    <button
+                        id='clear'
+                        onClick={handleClear}
+                        className='calc-btn pink'
+                    >
+                        AC
+                    </button>
+                    <button
+                        id='backspace'
+                        onClick={handleBackspace}
+                        className='calc-btn pink'
+                    >
+                        <BackspaceIcon />
+                    </button>
                     {buttons.map((b) => (
                         <button
                             id={b.id}
@@ -112,17 +140,10 @@ function Calculator() {
                     <button
                         id='equals'
                         onClick={handleEquals}
-                        className='calc-btn pink'
+                        className='calc-btn green'
                         ref={refEquals}
                     >
                         =
-                    </button>
-                    <button
-                        id='clear'
-                        onClick={handleClear}
-                        className='calc-btn pink'
-                    >
-                        AC
                     </button>
                 </div>
             </div>

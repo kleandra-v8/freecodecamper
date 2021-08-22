@@ -2,12 +2,6 @@
 
 const buttons = [
     {
-        id: 'decimal',
-        input: '.',
-        display: '.',
-        color: 'green',
-    },
-    {
         id: 'divide',
         input: '/',
         display: '÷',
@@ -90,6 +84,12 @@ const buttons = [
         input: '0',
         display: '0',
         color: 'white',
+    },
+    {
+        id: 'decimal',
+        input: '.',
+        display: '.',
+        color: 'green',
     },
 ];
 

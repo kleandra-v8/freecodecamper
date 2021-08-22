@@ -1,5 +1,5 @@
 import buttons from './buttons';
-import { multiply, divide, add, subtract, toNumber } from 'lodash';
+import { multiply, divide, add, subtract } from 'lodash';
 
 const OPERATIONS = {
     '*': multiply,
@@ -186,6 +186,7 @@ export const keyboardEventHandler = (e) => {
 
     let id;
     if (keyd === '=') id = 'equals';
+    else if (keyd === 'Backspace') id = 'backspace';
     else {
         const input = buttons.find((b) => b.input === keyd);
         id = input?.id;
