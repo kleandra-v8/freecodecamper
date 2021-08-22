@@ -8,11 +8,26 @@ const OPERATIONS = {
     '-': subtract,
 };
 
-export const isNumber = (str) => /\d+([.]?\d*)/.test(str);
+export const isNumber = (str) => /[-]?\d+([.]?\d*)/.test(str);
 
 export const isOperator = (str) => /[/*\-+=]+$/.test(str);
 
 export const hasDecimal = (str) => /[.]/.test(str);
+
+export const getOperator = (ops) => {
+    let op = ops.slice(-1);
+
+    if (op === '-' && ops.length > 1)
+        return {
+            sign: '-',
+            operator: ops.slice(-2, -1),
+        };
+    else
+        return {
+            sign: '',
+            operator: op,
+        };
+};
 
 export const inputAZero = (o, n, f) => {
     // console.log(
@@ -28,9 +43,11 @@ export const inputAZero = (o, n, f) => {
         };
     }
     if (isOperator(o)) {
+        const { sign, operator } = getOperator(o);
+
         return {
-            display: n,
-            formula: f + ' ' + o.slice(-1),
+            display: sign + n,
+            formula: f + ' ' + operator,
         };
     }
 
@@ -52,9 +69,11 @@ export const inputADecimal = (o, n, f) => {
         };
     }
     if (isOperator(o)) {
+        const { sign, operator } = getOperator(o);
+
         return {
-            display: '0' + n,
-            formula: f + ' ' + o.slice(-1),
+            display: sign + '0' + n,
+            formula: f + ' ' + operator,
         };
     }
 
@@ -79,9 +98,11 @@ export const inputANumber = (o, n, f) => {
         };
     }
     if (isOperator(o)) {
+        const { sign, operator } = getOperator(o);
+
         return {
-            display: n,
-            formula: f + ' ' + o.slice(-1),
+            display: sign + n,
+            formula: f + ' ' + operator,
         };
     }
 
@@ -93,14 +114,6 @@ export const inputAnOperator = (o, n, f) => {
     //     `inputAnOperator  |  Old: ${o}  |  Current: ${n}  |  Formula: ${f}  `
     // );
 
-    // if (o === '0') {
-    //     if (n === '*')
-    //         return {
-    //             display: n,
-    //             formula: f + ' ' + o,
-    //         };
-    //     else return null;
-    // }
     if (isNumber(o)) {
         return {
             display: n,

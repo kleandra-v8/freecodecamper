@@ -13,10 +13,11 @@ import {
 } from './helpers';
 
 /**
- 
-User Story #9: In any order, I should be able to add, subtract, multiply and divide a chain of numbers of any length, and when I hit =, the correct result should be shown in the element with the id of display.
 
-User Story #13: If 2 or more operators are entered consecutively, the operation performed should be the last operator entered (excluding the negative (-) sign). For example, if 5 + * 7 = is entered, the result should be 35 (i.e. 5 * 7); if 5 * - 5 = is entered, the result should be -25 (i.e. 5 * (-5)).
+    User Story #13: If 2 or more operators are entered consecutively, 
+    the operation performed should be the last operator entered (excluding the negative (-) sign). 
+    For example, if 5 + * 7 = is entered, the result should be 35 (i.e. 5 * 7); 
+    if 5 * - 5 = is entered, the result should be -25 (i.e. 5 * (-5)).
 
 */
 
